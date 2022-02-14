@@ -1,0 +1,54 @@
+<div id="altair-viz-a7b0323940d242d8aef90074125e5ddc"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-a7b0323940d242d8aef90074125e5ddc") {
+      outputDiv = document.getElementById("altair-viz-a7b0323940d242d8aef90074125e5ddc");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"name": "data-15841b3b2926b7f5b16247f92d23f1bc"}, "mark": "line", "encoding": {"x": {"field": "x", "type": "quantitative"}, "y": {"field": "y", "type": "quantitative"}}, "selection": {"selector": {"type": "single", "fields": ["x_mod"], "bind": {"input": "range", "max": 5, "min": 0, "name": "X Value", "step": 0.01}, "init": {"x_mod": 3.1}}}, "title": "Interactive Chart!", "transform": [{"calculate": "sin(datum.x * selector.x_mod)", "as": "y"}], "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"data-15841b3b2926b7f5b16247f92d23f1bc": [{"x": 0}, {"x": 1}, {"x": 2}, {"x": 3}, {"x": 4}, {"x": 5}, {"x": 6}, {"x": 7}, {"x": 8}, {"x": 9}, {"x": 10}, {"x": 11}, {"x": 12}, {"x": 13}, {"x": 14}, {"x": 15}, {"x": 16}, {"x": 17}, {"x": 18}, {"x": 19}, {"x": 20}, {"x": 21}, {"x": 22}, {"x": 23}, {"x": 24}, {"x": 25}, {"x": 26}, {"x": 27}, {"x": 28}, {"x": 29}, {"x": 30}, {"x": 31}, {"x": 32}, {"x": 33}, {"x": 34}, {"x": 35}, {"x": 36}, {"x": 37}, {"x": 38}, {"x": 39}, {"x": 40}, {"x": 41}, {"x": 42}, {"x": 43}, {"x": 44}, {"x": 45}, {"x": 46}, {"x": 47}, {"x": 48}, {"x": 49}, {"x": 50}, {"x": 51}, {"x": 52}, {"x": 53}, {"x": 54}, {"x": 55}, {"x": 56}, {"x": 57}, {"x": 58}, {"x": 59}, {"x": 60}, {"x": 61}, {"x": 62}, {"x": 63}, {"x": 64}, {"x": 65}, {"x": 66}, {"x": 67}, {"x": 68}, {"x": 69}, {"x": 70}, {"x": 71}, {"x": 72}, {"x": 73}, {"x": 74}, {"x": 75}, {"x": 76}, {"x": 77}, {"x": 78}, {"x": 79}, {"x": 80}, {"x": 81}, {"x": 82}, {"x": 83}, {"x": 84}, {"x": 85}, {"x": 86}, {"x": 87}, {"x": 88}, {"x": 89}, {"x": 90}, {"x": 91}, {"x": 92}, {"x": 93}, {"x": 94}, {"x": 95}, {"x": 96}, {"x": 97}, {"x": 98}, {"x": 99}]}}, {"mode": "vega-lite"});
+</script>
